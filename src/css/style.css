@@ -1,3 +1,67 @@
 body {
-  background-color: bisque;
+  background-color: rgb(234, 218, 198);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a ul {
+  list-style: none;
+}
+
+.container {
+  background-color: white;
+  width: 400px;
+  border: 1px solid silver;
+  margin: 100px auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+ul li {
+  padding: 10px;
+  border-top: 1px solid silver;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+li input {
+  width: 10%;
+}
+
+li p {
+  width: 80%;
+  font-weight: 600;
+}
+
+li img {
+  width: 10px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  border: 0;
+  border-top: 1px solid silver;
+  height: 40px;
+  padding: 5px 20px;
+  width: 100%;
+  outline: 0;
+  font-style: italic;
+}
+
+input[type=button] {
+  border: 0;
+  border-top: 1px solid silver;
+  height: 40px;
+  padding: 5px;
+  width: 100%;
+  outline: 0;
+  font-weight: bold;
 }
