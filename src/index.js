@@ -1,7 +1,7 @@
 import './css/style.css';
-import validateForm from './function';
+/* eslint-disable-next-line import/no-cycle */
+import validateForm from './function.js';
 import Icon from './images/option.png';
-// import validateForm from './function.js';
 import removeTask from './remove.js';
 
 let tasks = [];
@@ -65,9 +65,9 @@ function component() {
   inputText.setAttribute('type', 'text');
   inputText.setAttribute('placeholder', 'Add to your list...');
   inputText.setAttribute('id', 'newTask');
-  
+
   const inputSubmit = document.createElement('input');
-  inputSubmit.setAttribute('type','submit');
+  inputSubmit.setAttribute('type', 'submit');
   inputSubmit.setAttribute('value', '>');
 
   form.appendChild(inputText);
