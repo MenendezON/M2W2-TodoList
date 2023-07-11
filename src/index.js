@@ -2,16 +2,11 @@ import './css/style.css';
 import validateForm from './function.js';
 import Icon from './images/option.png';
 import removeTask from './remove.js';
-import removeAllTask from './removeAll.js';
 
 let tasks = [];
 export const main = document.querySelector('.container');
 const dataLoading = () => {
   tasks = JSON.parse(localStorage.getItem('datas')) ?? [];
-  main.innerHTML = '';
-  /* eslint-disable */
-  document.body.appendChild(component());
-  /* eslint-enable */
 };
 
 export default dataLoading;
@@ -56,11 +51,8 @@ const showTask = (i) => {
   li.appendChild(myIcon);
   return li;
 };
-function component() {
-  const h1 = document.createElement('h1');
-  h1.textContent = 'To-do list';
-  main.appendChild(h1);
 
+function component() {
   const form = document.createElement('form');
   form.setAttribute('action', '#');
   form.setAttribute('id', 'taskForm');
@@ -93,10 +85,7 @@ function component() {
   const inputButton = document.createElement('input');
   inputButton.setAttribute('type', 'button');
   inputButton.setAttribute('value', 'Clear all completd');
-  inputButton.addEventListener('click', () => {
-    removeAllTask();
-    dataLoading();
-  });
+
   main.appendChild(inputButton);
 
   return main;
@@ -104,4 +93,5 @@ function component() {
 
 window.addEventListener('DOMContentLoaded', () => {
   dataLoading();
+  component();
 });
