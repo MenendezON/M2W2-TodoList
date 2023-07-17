@@ -1,6 +1,7 @@
 import './css/style.css';
 import validateForm from './function.js';
-import Icon from './images/option.png';
+import delIcon from './images/delete.png';
+import optIcon from './images/option.png';
 import removeTask from './remove.js';
 import removeAllTask from './removeAll.js';
 
@@ -22,12 +23,14 @@ const showTask = (i) => {
   inputCheckbox.setAttribute('type', 'checkbox');
   if (tasks[i].completed === false) {
     inputCheckbox.removeAttribute('checked');
+    paragraph.classList.remove('extra');
   } else {
     inputCheckbox.setAttribute('checked', 'checked');
+    paragraph.classList.add('extra');
+    paragraph.setAttribute('disabled', 'disabled');
   }
   inputCheckbox.addEventListener('change', () => {
     if (inputCheckbox.checked) {
-      paragraph.classList.add('extra');
     }
     tasks[i].completed = inputCheckbox.checked;
     localStorage.setItem('datas', JSON.stringify(tasks));
@@ -44,16 +47,18 @@ const showTask = (i) => {
   });
   li.appendChild(inputCheckbox);
   li.appendChild(paragraph);
-  const myIcon = new Image();
-  myIcon.src = Icon;
-  myIcon.setAttribute('alt', '');
-  myIcon.setAttribute('title', 'Delete this task');
-  myIcon.classList.add('delete');
-  myIcon.addEventListener('click', () => {
-    removeTask(i);
-    dataLoading();
-  });
-  li.appendChild(myIcon);
+
+  const icon = document.createElement('i');
+  if (tasks[i].completed === false) {
+    icon.classList.add('fa', 'fa-ellipsis-v', 'reorder');
+  } else {
+    icon.classList.add('fa', 'fa-trash-o', 'delete');
+    icon.addEventListener('click', () => {
+      removeTask(i);
+      dataLoading();
+    });
+  }
+  li.appendChild(icon);
   return li;
 };
 function component() {
