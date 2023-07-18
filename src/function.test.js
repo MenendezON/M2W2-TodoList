@@ -23,4 +23,19 @@ describe('addTask', () => {
       JSON.stringify([{ description: 'Test code', completed: false, index: 1 }]),
     );
   });
+   it('Add one new item to the list', () => {
+    document.body.innerHTML = '<div>'
+      + '  <ul id="list"><li></li></ul>'
+      + '</div>';
+    validateForm('Test code', mockStorage);
+    const list = document.querySelectorAll('#list li');
+    expect(list).toHaveLength(1);
+  });
+  it('Remove item from the list', () => {
+    validateForm('Test code', mockStorage);
+    validateForm('Test code', mockStorage);
+    validateForm('Test code', mockStorage);
+    removeTask(0, mockStorage);
+    expect(mockStorage.getItem()).toHaveLength(2);
+  });
 });
