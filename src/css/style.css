@@ -50,11 +50,12 @@ li p {
 li i {
   width: 24px;
   cursor: pointer;
-  margin:auto;
+  margin: auto;
 }
 
-.reorder, .delete{
-  font-size:24px;
+.reorder,
+.delete {
+  font-size: 24px;
 }
 
 .extra {
@@ -88,11 +89,11 @@ form input[type=submit] {
   border: 0;
 }
 
-.reoder{
-  cursor:move;
+.reoder {
+  cursor: move;
 }
 
-.taskField:disabled{
+.taskField:disabled {
   background-color: white;
 }
 

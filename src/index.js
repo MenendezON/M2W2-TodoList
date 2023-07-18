@@ -1,7 +1,5 @@
 import './css/style.css';
 import validateForm from './function.js';
-import delIcon from './images/delete.png';
-import optIcon from './images/option.png';
 import removeTask from './remove.js';
 import removeAllTask from './removeAll.js';
 
@@ -30,8 +28,6 @@ const showTask = (i) => {
     paragraph.setAttribute('disabled', 'disabled');
   }
   inputCheckbox.addEventListener('change', () => {
-    if (inputCheckbox.checked) {
-    }
     tasks[i].completed = inputCheckbox.checked;
     localStorage.setItem('datas', JSON.stringify(tasks));
     dataLoading();
