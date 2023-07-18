@@ -40,8 +40,7 @@ describe('addTask', () => {
     removeTask(0, mockStorage);
     expect(mockStorage.getItem()).toHaveLength(2);
   });
-});
-it('edit task', () => {
+  it('edit task', () => {
     const index = 0;
     const description = 'Updated task description';
     editTask(index, description, mockStorage);
@@ -62,3 +61,4 @@ it('edit task', () => {
       expect(JSON.parse(mockStorage.setItem.mock.calls[i])).toEqual([{ completed: false, index: i + 1 }]);
     }
   });
+});
