@@ -23,7 +23,7 @@ describe('addTask', () => {
       JSON.stringify([{ description: 'Test code', completed: false, index: 1 }]),
     );
   });
-   it('Add one new item to the list', () => {
+  it('Add one new item to the list', () => {
     document.body.innerHTML = '<div>'
       + '  <ul id="list"><li></li></ul>'
       + '</div>';
