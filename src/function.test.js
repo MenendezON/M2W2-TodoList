@@ -1,6 +1,8 @@
 /** @jest-environment jsdom */
 
-import { validateForm, removeTask } from './function.js';
+import {
+  validateForm, removeTask, editTask, checkedBox, tasks, removeAll,
+} from './function.js';
 
 describe('addTask', () => {
   let mockStorage;
