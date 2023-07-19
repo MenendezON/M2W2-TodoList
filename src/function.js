@@ -1,4 +1,4 @@
-const tasks = [];
+export const tasks = [];
 
 function storeTasks(storage) {
   storage.setItem('tasks', JSON.stringify(tasks));
@@ -33,11 +33,13 @@ export function editTask(index, description, storage) {
   tasks[index].description = description;
   storeTasks(storage);
 }
+
 export function checkedBox(index, storage) {
   tasks[index].completed = true;
   storeTasks(storage);
 }
-export function clearTasks() {
+
+export function removeAll() {
   const uncheckedTasks = tasks.filter((task) => task.completed === false);
   uncheckedTasks.forEach((task, index) => {
     task.index = index + 1;
